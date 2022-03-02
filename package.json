@@ -1,0 +1,36 @@
+{
+  "name": "shortbootcamp-pd",
+  "version": "1.0.0",
+  "description": "## Author #### Nugi",
+  "main": "cucumber.conf.js",
+  "scripts": {
+    "test": "cucumber-js e2e-tests/features --require cucumber.conf.js --require e2e-tests/step-definitions --format node_modules/cucumber-pretty --format json:e2e-tests/report/cucumber_report.json  --format json:e2e-tests/report/cucumber_report.xml",
+    "test-tribe1": "cucumber-js e2e-tests/features-tribe1 --require cucumber.conf.js --require e2e-tests/step-tribe1 --format node_modules/cucumber-pretty --format json:e2e-tests/report/cucumber_report.json  --format json:e2e-tests/report/cucumber_report.xml",
+    "test-tribe2": "cucumber-js e2e-tests/features-tribe2 --require cucumber.conf.js --require e2e-tests/step-tribe2 --format node_modules/cucumber-pretty --format json:e2e-tests/report/cucumber_report.json  --format json:e2e-tests/report/cucumber_report.xml",
+    "test-tribe3": "cucumber-js e2e-tests/features-tribe3 --require cucumber.conf.js --require e2e-tests/step-tribe3 --format node_modules/cucumber-pretty --format json:e2e-tests/report/cucumber_report.json  --format json:e2e-tests/report/cucumber_report.xml",
+    "test-tribe4": "cucumber-js e2e-tests/features-tribe4 --require cucumber.conf.js --require e2e-tests/step-tribe4 --format node_modules/cucumber-pretty --format json:e2e-tests/report/cucumber_report.json  --format json:e2e-tests/report/cucumber_report.xml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noviantonugroho4/shortbootcamp-pd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noviantonugroho4/shortbootcamp-pd/issues"
+  },
+  "homepage": "https://github.com/noviantonugroho4/shortbootcamp-pd#readme",
+  "devDependencies": {
+    "chromedriver": "^98.0.1",
+    "cucumber": "^6.0.5",
+    "cucumber-html-reporter": "^5.4.0",
+    "cucumber-pretty": "^6.0.0",
+    "nightwatch": "^1.6.4",
+    "nightwatch-api": "^3.0.2",
+    "nightwatch-xhr": "^0.4.7"
+  },
+  "dependencies": {
+    "archiver": "^5.3.0"
+  }
+}

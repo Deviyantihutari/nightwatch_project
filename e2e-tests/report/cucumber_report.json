@@ -1,0 +1,98 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Example",
+    "line": 1,
+    "id": "example",
+    "tags": [],
+    "uri": "e2e-tests\\features\\login.feature",
+    "elements": [
+      {
+        "id": "example;scenario-1:-invalid-login-1-(wrong-username-&-password)",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Scenario 1: Invalid Login 1 (Wrong Username & Password)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I visit GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1718000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I type username \"nugi1234\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 144000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "I type password \"nugi1234\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 652000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I click sign in button",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 571000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I see popup warning error for wrong username & password",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 545000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "cucumber.conf.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
