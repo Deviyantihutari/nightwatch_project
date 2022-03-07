@@ -1,8 +1,6 @@
 const { client } = require('nightwatch-api');
 const { Given, Then, When } = require('cucumber');
 
-
-//Scenario 1: Invalid Login 1 (Wrong Username & Password)
 Given(/^I visit GSI Medical Lab web app$/, () => {
     return client
         .url('https://agsidev.gsilab.id/')
@@ -38,6 +36,103 @@ Then(/^I see popup warning error for wrong username & password$/, () => {
         .pause(500)
         .waitForElementPresent('/html/body/div[3]/div')
         .assert.containsText('/html/body/div[3]/div/div[3]', 'Invalid username and(or) password')
+});
+
+Then(/^I got text error message "Required" under username field$/, () => {
+    return client
+        .useXpath()
+        .pause(500)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[1]')
+        .assert.containsText('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[1]', 'Required')
+});
+
+Then(/^I got text error message "Required" under password field$/, () => {
+    return client
+        .useXpath()
+        .pause(500)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[2]')
+        .assert.containsText('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[2]', 'Required')
+});
+
+Then(/^I got text error message "password must be at least 2 characters" under password field$/, () => {
+    return client
+        .useXpath()
+        .pause(500)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[2]')
+        .assert.containsText('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[2]', 'password must be at least 2 characters')
+});
+
+Then(/^I got popup warning error because use capital characters in password field$/, () => {
+    return client
+        .useXpath()
+        .pause(500)
+        .waitForElementPresent('/html/body/div[3]/div')
+        .assert.containsText('/html/body/div[3]/div/div[3]', 'Invalid username and(or) password')
+});
+
+Then(/^I got popup warning error because use capital characters in username field$/, () => {
+    return client
+        .useXpath()
+        .pause(500)
+        .waitForElementPresent('/html/body/div[3]/div')
+        .assert.containsText('/html/body/div[3]/div/div[3]', 'Invalid username and(or) password')
+});
+
+Then(/^I got popup warning error because use Capital characters in username and password column$/, () => {
+    return client
+        .useXpath()
+        .pause(500)
+        .waitForElementPresent('/html/body/div[3]/div')
+        .assert.containsText('/html/body/div[3]/div/div[3]', 'Invalid username and(or) password')
+});
+
+Then(/^I should see to home page '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)'$/, (greeting, home, lab_request_list, booking_list, report, logs, result, appointment, configuration, create_lab_request) => {
+    return client
+        .useXpath()
+        .assert.urlEquals('https://agsidev.gsilab.id/home')
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[2]/div[1]/div/div[1]/p[1]')
+        .assert.containsText('//*[@id="__next"]/div/div/div[2]/div[1]/div/div[1]/p[1]', greeting)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[1]')
+        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[1]', home)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[2]')
+        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[2]', lab_request_list)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[3]')
+        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[3]', booking_list)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[4]')
+        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[4]', report)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[5]')
+        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[5]', logs)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[6]')
+        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[6]', result)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[7]')
+        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[7]', appointment)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[8]')
+        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[8]', configuration)
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/div[4]/button/p')
+        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/div[4]/button/p', create_lab_request)
+        .pause(500)
+});
+
+When(/^I checklist the keep me signed in$/, () => {
+    return client
+        .useXpath()
+        .click('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/label/span[1]/span[1]/input')
+        .pause(500)
+});
+
+Then(/^I logout from GSI Medical Lab web app$/, () => {
+    return client
+        .url('https://agsidev.gsilab.id/home')
+        .useXpath()
+        .pause(500)
+        //Click rounded account button
+        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/div[4]/span')
+        .click('//*[@id="__next"]/div/div/div[1]/header/div/div[4]/span')
+        .pause(500)
+        //Click logout button
+        .waitForElementPresent('/html/body/div[3]/div[3]/ul/li')
+        .click('/html/body/div[3]/div[3]/ul/li')
+        .pause(500)
 });
 
 // Given(/^I on GSI login page$/, () => {

@@ -1,17 +1,17 @@
 [
   {
     "keyword": "Feature",
-    "name": "Example",
+    "name": "Login",
     "line": 1,
-    "id": "example",
+    "id": "login",
     "tags": [],
     "uri": "e2e-tests\\features\\login.feature",
     "elements": [
       {
-        "id": "example;scenario-1:-invalid-login-1-(wrong-username-&-password)",
+        "id": "login;1.-login-with-wrong-username-&-password-(negative-case)",
         "keyword": "Scenario",
         "line": 3,
-        "name": "Scenario 1: Invalid Login 1 (Wrong Username & Password)",
+        "name": "1. Login With Wrong Username & Password (Negative Case)",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -21,37 +21,37 @@
             "line": 4,
             "name": "I visit GSI Medical Lab web app",
             "match": {
-              "location": "e2e-tests\\step-definitions\\login.js:6"
+              "location": "e2e-tests\\step-definitions\\login.js:4"
             },
             "result": {
               "status": "passed",
-              "duration": 1718000000
+              "duration": 2022000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 5,
-            "name": "I type username \"nugi1234\"",
+            "name": "I type username \"cobanugi\"",
             "match": {
-              "location": "e2e-tests\\step-definitions\\login.js:13"
+              "location": "e2e-tests\\step-definitions\\login.js:11"
             },
             "result": {
               "status": "passed",
-              "duration": 144000000
+              "duration": 229000000
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 6,
-            "name": "I type password \"nugi1234\"",
+            "name": "I type password \"cobanugi\"",
             "match": {
-              "location": "e2e-tests\\step-definitions\\login.js:20"
+              "location": "e2e-tests\\step-definitions\\login.js:18"
             },
             "result": {
               "status": "passed",
-              "duration": 652000000
+              "duration": 684000000
             }
           },
           {
@@ -60,11 +60,11 @@
             "line": 7,
             "name": "I click sign in button",
             "match": {
-              "location": "e2e-tests\\step-definitions\\login.js:28"
+              "location": "e2e-tests\\step-definitions\\login.js:26"
             },
             "result": {
               "status": "passed",
-              "duration": 571000000
+              "duration": 613000000
             }
           },
           {
@@ -73,11 +73,785 @@
             "line": 8,
             "name": "I see popup warning error for wrong username & password",
             "match": {
-              "location": "e2e-tests\\step-definitions\\login.js:35"
+              "location": "e2e-tests\\step-definitions\\login.js:33"
             },
             "result": {
               "status": "passed",
-              "duration": 545000000
+              "duration": 583000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "cucumber.conf.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "login;2.-login-with-null-username-&-valid-password-(negative-case)",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "2. Login With Null Username & Valid Password (Negative Case)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "I visit GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 799000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I type password \"nugi\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 619000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I click sign in button",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 579000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I got text error message \"Required\" under username field",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 563000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "cucumber.conf.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "login;3.-login-with-valid-username-&-null-password-(negative-case)",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "3. Login With Valid Username & Null Password (Negative Case)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 17,
+            "name": "I visit GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 755000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 18,
+            "name": "I type username \"nugi\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 141000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I click sign in button",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 639000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "I got text error message \"Required\" under password field",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 573000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "cucumber.conf.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "login;4.-login-with-valid-username-&-password-does-not-meet-the-requirements-(negative-case)",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "4. Login With Valid Username & password does not meet the requirements (Negative Case)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 23,
+            "name": "I visit GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 718000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "I type username \"nugi\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 147000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "I type password \"n\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 609000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "I click sign in button",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 578000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "I got text error message \"password must be at least 2 characters\" under password field",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:57"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 544000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "cucumber.conf.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "login;5.-login-with-null-username-&-null-password-(negative-case)",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "5. Login With Null Username & Null Password (Negative Case)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 30,
+            "name": "I visit GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 692000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 31,
+            "name": "I click sign in button",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 590000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 32,
+            "name": "I got text error message \"Required\" under username field",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 586000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 33,
+            "name": "I got text error message \"Required\" under password field",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 587000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "cucumber.conf.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "login;6.-login-with-valid-username-&-password-use-capital-character-(negative-case)",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "6. Login With Valid Username & Password use CAPITAL Character (Negative Case)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 36,
+            "name": "I visit GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 765000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 37,
+            "name": "I type username \"nugi\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 166000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "I type password \"NUGI\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 708000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 39,
+            "name": "I click sign in button",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 629000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 40,
+            "name": "I got popup warning error because use capital characters in password field",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:65"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 597000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "cucumber.conf.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "login;7.-login-with-username-use-capital-charachter-&-valid-password-(negative-case)",
+        "keyword": "Scenario",
+        "line": 42,
+        "name": "7. Login With Username use CAPITAL Charachter & Valid Password (Negative Case)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 43,
+            "name": "I visit GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 773000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 44,
+            "name": "I type username \"NUGI\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 157000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 45,
+            "name": "I type password \"nugi\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 626000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "I click sign in button",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 618000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 47,
+            "name": "I got popup warning error because use capital characters in username field",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:73"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 582000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "cucumber.conf.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "login;8.-login-with-username-&-password-use-capital-charachter-(negative-case)",
+        "keyword": "Scenario",
+        "line": 49,
+        "name": "8. Login With Username & Password use CAPITAL Charachter (Negative Case)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 50,
+            "name": "I visit GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 858000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 51,
+            "name": "I type username \"NUGI\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 190000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "I type password \"NUGI\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 695000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 53,
+            "name": "I click sign in button",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 659000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 54,
+            "name": "I got popup warning error because use Capital characters in username and password column",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:81"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 587000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "cucumber.conf.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "login;9.-login-without-checklist-the-\"keep-me-signed-in\"-(positive-case)",
+        "keyword": "Scenario",
+        "line": 56,
+        "name": "9. Login without checklist the \"Keep me signed in\" (Positive Case)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 57,
+            "name": "I visit GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 877000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 58,
+            "name": "I type username \"nugi\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 195000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 59,
+            "name": "I type password \"nugi\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 755000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 60,
+            "name": "I click sign in button",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 661000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 61,
+            "name": "I should see to home page 'Hello, NUGI!', 'Home', 'Lab Request List', 'Booking List', 'Report', 'Logs', 'Result', 'Appointment', 'Configuration', 'Create Lab Request'",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:89"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4590000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 62,
+            "name": "I logout from GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:123"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3238000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "cucumber.conf.js:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "login;10.-login-with-checklist-the-\"keep-me-signed-in\"-(positive-case)",
+        "keyword": "Scenario",
+        "line": 64,
+        "name": "10. Login with checklist the \"Keep me signed in\" (Positive Case)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 65,
+            "name": "I visit GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 812000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 66,
+            "name": "I type username \"nugi\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 250000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 67,
+            "name": "I type password \"nugi\"",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 731000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 68,
+            "name": "I checklist the keep me signed in",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:116"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 723000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 69,
+            "name": "I click sign in button",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 588000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 70,
+            "name": "I should see to home page 'Hello, NUGI!', 'Home', 'Lab Request List', 'Booking List', 'Report', 'Logs', 'Result', 'Appointment', 'Configuration', 'Create Lab Request'",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:89"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1684000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 71,
+            "name": "I logout from GSI Medical Lab web app",
+            "match": {
+              "location": "e2e-tests\\step-definitions\\login.js:123"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2537000000
             }
           },
           {
