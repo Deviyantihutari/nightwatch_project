@@ -1,233 +1,113 @@
 const { client } = require('nightwatch-api');
 const { Given, Then, When } = require('cucumber');
 
-Given(/^I visit GSI Medical Lab web app$/, () => {
+Given(/^I visit web$/, () => {
     return client
-        .url('https://agsidev.gsilab.id/')
+        .url('https://opensource-demo.orangehrmlive.com/')
         .maximizeWindow()
-        .pause(500)
+        .pause(1000)
 });
 
 When(/^I type username "(.*?)"$/, (username) => {
     return client
         .useXpath()
-        .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[1]/div/input')
-        .setValue('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[1]/div/input', username)
+        .waitForElementPresent('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[2]/input')
+        .setValue('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[2]/input', username)
 });
 
 When(/^I type password "(.*?)"$/, (password) => {
     return client
         .useXpath()
-        .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[2]/input')
-        .setValue('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[2]/input', password)
+        .waitForElementPresent('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[3]/input')
+        .setValue('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[3]/input', password)
         .pause(500)
 });
 
-When(/^I click sign in button$/, () => {
+When(/^I click login button$/, () => {
     return client
         .useXpath()
-        .click('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/button')
+        .click('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[5]/input')
         .pause(500)
 });
 
-Then(/^I see popup warning error for wrong username & password$/, () => {
-    return client
-        .useXpath()
-        .pause(500)
-        .waitForElementPresent('/html/body/div[3]/div')
-        .assert.containsText('/html/body/div[3]/div/div[3]', 'Invalid username and(or) password')
-});
-
-Then(/^I got text error message "Required" under username field$/, () => {
+'Scenario 1'
+Then(/^I got text error message "Invalid credentials"$/, () => {
     return client
         .useXpath()
         .pause(500)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[1]')
-        .assert.containsText('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[1]', 'Required')
+        .waitForElementPresent('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[5]/span')
+        .assert.containsText('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[5]/span', 'Invalid credentials')
 });
 
-Then(/^I got text error message "Required" under password field$/, () => {
+'Scenario 2'
+Then(/^I got text error message "Username cannot be empty"$/, () => {
     return client
         .useXpath()
         .pause(500)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[2]')
-        .assert.containsText('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[2]', 'Required')
+        .waitForElementPresent('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[5]/span')
+        .assert.containsText('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[5]/span', 'Username cannot be empty')
 });
 
-Then(/^I got text error message "password must be at least 2 characters" under password field$/, () => {
+'Scenario 3'
+Then(/^I got text error message "Password cannot be empty"$/, () => {
     return client
         .useXpath()
         .pause(500)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[2]')
-        .assert.containsText('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/p[2]', 'password must be at least 2 characters')
+        .waitForElementPresent('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[5]/span')
+        .assert.containsText('/html/body/div[1]/div/div[3]/div[2]/div[2]/form/div[5]/span', 'Password cannot be empty')
 });
 
-Then(/^I got popup warning error because use capital characters in password field$/, () => {
+Then(/^I should see tab '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)'$/, (Admin, PIM, Leave, Time, Recruitment, Performance, Dashboard, Directory, Maintenance, Buzz) => {
     return client
         .useXpath()
+        .assert.urlEquals('https://opensource-demo.orangehrmlive.com/index.php/dashboard')
+        .waitForElementPresent('/html/body/div[1]/div[2]/ul/li[1]/a/b')
+        .assert.containsText('/html/body/div[1]/div[2]/ul/li[1]/a/b', Admin)
+        .waitForElementPresent('/html/body/div[1]/div[2]/ul/li[2]/a/b')
+        .assert.containsText('/html/body/div[1]/div[2]/ul/li[2]/a/b', PIM)
+        .waitForElementPresent('/html/body/div[1]/div[2]/ul/li[3]/a/b')
+        .assert.containsText('/html/body/div[1]/div[2]/ul/li[3]/a/b', Leave)
+        .waitForElementPresent('/html/body/div[1]/div[2]/ul/li[4]/a/b')
+        .assert.containsText('/html/body/div[1]/div[2]/ul/li[4]/a/b', Time)
+        .waitForElementPresent('/html/body/div[1]/div[2]/ul/li[5]/a/b')
+        .assert.containsText('/html/body/div[1]/div[2]/ul/li[5]/a/b', Recruitment)
+        .waitForElementPresent('/html/body/div[1]/div[2]/ul/li[7]/a/b')
+        .assert.containsText('/html/body/div[1]/div[2]/ul/li[7]/a/b', Performance)
+        .waitForElementPresent('/html/body/div[1]/div[2]/ul/li[8]/a/b')
+        .assert.containsText('/html/body/div[1]/div[2]/ul/li[8]/a/b', Dashboard)
+        .waitForElementPresent('/html/body/div[1]/div[2]/ul/li[9]/a/b')
+        .assert.containsText('/html/body/div[1]/div[2]/ul/li[9]/a/b', Directory)
+        .waitForElementPresent('/html/body/div[1]/div[2]/ul/li[10]/a/b')
+        .assert.containsText('/html/body/div[1]/div[2]/ul/li[10]/a/b', Maintenance)
+        .waitForElementPresent('/html/body/div[1]/div[2]/ul/li[11]/a/b')
+        .assert.containsText('/html/body/div[1]/div[2]/ul/li[11]/a/b', Buzz)
         .pause(500)
-        .waitForElementPresent('/html/body/div[3]/div')
-        .assert.containsText('/html/body/div[3]/div/div[3]', 'Invalid username and(or) password')
 });
 
-Then(/^I got popup warning error because use capital characters in username field$/, () => {
+Then(/^I click button menu profile$/, () => {
     return client
         .useXpath()
+        .click('/html/body/div[1]/div[1]/a[2]')
         .pause(500)
-        .waitForElementPresent('/html/body/div[3]/div')
-        .assert.containsText('/html/body/div[3]/div/div[3]', 'Invalid username and(or) password')
 });
 
-Then(/^I got popup warning error because use Capital characters in username and password column$/, () => {
+Then(/^I click logout$/, () => {
     return client
         .useXpath()
+        .click('/html/body/div[1]/div[1]/div[9]/ul/li[3]/a')
         .pause(500)
-        .waitForElementPresent('/html/body/div[3]/div')
-        .assert.containsText('/html/body/div[3]/div/div[3]', 'Invalid username and(or) password')
 });
 
-Then(/^I should see to home page '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)'$/, (greeting, home, lab_request_list, booking_list, report, logs, result, appointment, configuration, create_lab_request) => {
+Then(/^I click MyInfo Menu$/, () => {
     return client
         .useXpath()
-        .assert.urlEquals('https://agsidev.gsilab.id/home')
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[2]/div[1]/div/div[1]/p[1]')
-        .assert.containsText('//*[@id="__next"]/div/div/div[2]/div[1]/div/div[1]/p[1]', greeting)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[1]')
-        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[1]', home)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[2]')
-        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[2]', lab_request_list)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[3]')
-        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[3]', booking_list)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[4]')
-        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[4]', report)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[5]')
-        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[5]', logs)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[6]')
-        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[6]', result)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[7]')
-        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[7]', appointment)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[8]')
-        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/nav/ul/li[8]', configuration)
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/div[4]/button/p')
-        .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/div[4]/button/p', create_lab_request)
+        .click('/html/body/div[1]/div[2]/ul/li[6]/a/b')
         .pause(500)
 });
 
-When(/^I checklist the keep me signed in$/, () => {
+Then(/^I should see 'Personal Details'$/, () => {
     return client
         .useXpath()
-        .click('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/label/span[1]/span[1]/input')
-        .pause(500)
+        .waitForElementPresent('/html/body/div[1]/div[3]/div/div[2]/div[1]/h1')
+        .assert.containsText('/html/body/div[1]/div[3]/div/div[2]/div[1]/h1', 'Personal Details')
 });
-
-Then(/^I logout from GSI Medical Lab web app$/, () => {
-    return client
-        .url('https://agsidev.gsilab.id/home')
-        .useXpath()
-        .pause(500)
-        //Click rounded account button
-        .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/div[4]/span')
-        .click('//*[@id="__next"]/div/div/div[1]/header/div/div[4]/span')
-        .pause(500)
-        //Click logout button
-        .waitForElementPresent('/html/body/div[3]/div[3]/ul/li')
-        .click('/html/body/div[3]/div[3]/ul/li')
-        .pause(500)
-});
-
-// Given(/^I on GSI login page$/, () => {
-//     return client
-//     .pause(5000)
-//     .assert.urlEquals('https://agsidev.gsilab.id/')
-// });
-
-// When(/^I type username '(.*?)'$/, (username) => {
-//     return client
-//     .useXpath()
-//     .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[1]/div/input')
-//     .setValue('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[1]/div/input', username)
-//     .pause(500)
-// });
-//     var fs = require('fs')
-//     var userId = fs.readFileSync('./e2e-tests/validate-value/userId_config.json','utf8')
-//     return client
-//     .useXpath()
-//     .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[1]/div/input')
-//     .setValue('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[1]/div/input', userId)
-//     .pause(500)
-// });
-// When(/^I type password '(.*?)'$/, (pass) => {
-//     return client
-//     .useXpath()
-//     .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[2]/input')
-//     .setValue('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[2]/input', pass)
-//     .pause(500)
-// });
-// When(/^I type created password$/, () => {
-//     var fs = require('fs')
-//     var pass = fs.readFileSync('./e2e-tests/validate-value/password_config.json','utf8')
-//     return client
-//     .useXpath()
-//     .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[2]/input')
-//     .setValue('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/div[2]/input', pass)
-//     .pause(500)
-// });
-// When(/^I click Login$/, () => {
-//     return client
-//     .useXpath()
-//     .waitForElementPresent('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/button/span[1]')
-//     .click('//*[@id="__next"]/div/div/div/div[2]/div[2]/form/button/span[1]')
-//     .pause(5000)
-// });
-
-// Then(/^I on GSI homepage$/, () => {
-//     return client
-//     .useXpath()
-//     .pause(5000)
-//     .assert.urlEquals('https://agsidev.gsilab.id/home')
-// });
-// Then(/^I see GSI homepage header$/, () => {
-//     return client
-//     .useXpath()
-//     .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/div[2]/p')
-//     .assert.containsText('//*[@id="__next"]/div/div/div[1]/header/div/div[2]/p','GSI Platform')
-// });
-// Then(/^I see GSI homepage banner '(.*?)'$/, (banner) => {
-//     return client
-//     .useXpath()
-//     .waitForElementPresent('//*[@id="__next"]/div/div/div[2]/div[1]/div/div[1]/p[1]')
-//     .assert.containsText('//*[@id="__next"]/div/div/div[2]/div[1]/div/div[1]/p[1]',banner)
-// });
-// Then(/^I see GSI homepage created banner$/, () => {
-//     var fs = require('fs')
-//     var banner = fs.readFileSync('./e2e-tests/validate-value/orgName_config.json','utf8')
-//     banner = banner.toUpperCase()
-//     return client
-//     .useXpath()
-//     .waitForElementPresent('//*[@id="__next"]/div/div/div[2]/div[1]/div/div[1]/p[1]')
-//     .assert.containsText('//*[@id="__next"]/div/div/div[2]/div[1]/div/div[1]/p[1]',banner)
-// });
-// Then(/^I should see account inactive modal$/, () => {
-//     return client
-//     .useXpath()
-//     .waitForElementPresent('/html/body/div[3]/div/div[3]')
-//     .assert.containsText('/html/body/div[3]/div/div[3]','Maaf akun anda non aktif')
-//     .waitForElementPresent('/html/body/div[3]/div/div[4]/div/button')
-//     .click('/html/body/div[3]/div/div[4]/div/button')
-//     .pause(500)
-// });
-// Then(/^I logout$/, () => {
-//     return client
-//     .url('https://agsidev.gsilab.id/home')
-//     .useXpath()
-//     .pause(5000)
-//     //Click account
-//     .waitForElementPresent('//*[@id="__next"]/div/div/div[1]/header/div/div[4]/span')
-//     .click('//*[@id="__next"]/div/div/div[1]/header/div/div[4]/span')
-//     .pause(1000)
-//     //Click log out
-//     .waitForElementPresent('/html/body/div[3]/div[3]/ul/li')
-//     .click('/html/body/div[3]/div[3]/ul/li')
-//     .pause(5000)
-//     // .assert.urlEquals('https://agsidev.gsilab.id/home')
-// });
